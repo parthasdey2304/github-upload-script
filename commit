@@ -1,11 +1,14 @@
 #!/bin/bash
 
 commit_message="initial commit"
+files_to_commit=()  # Array to hold files to commit
 
-while getopts "b:c:" flag; do
+while getopts "b:c:i:m:" flag; do
     case "${flag}" in
         b) branch_name="${OPTARG}" ;;
         c) commit_message="${OPTARG}" ;;
+        i) files_to_commit+=("${OPTARG}") ;;
+        m) files_to_commit+=("${OPTARG}");;
         *) ;;
     esac
 done
@@ -16,6 +19,8 @@ figlet "Git!"
 # Check if .git directory exists
 if [ -e '.git' ]; then
     # Git directory exists
+
+    # Display unstaged files
     echo -e '\e[32m[INFO] Here are all the unstaged files...\e[0m'
     git status
     echo ''
@@ -25,9 +30,16 @@ if [ -e '.git' ]; then
     echo -e '\e[32m[INFO] Checking if any files need to be pulled...\e[0m'
     git pull
 
-    # Add all files for staging
-    echo -e '\e[32m[INFO] Adding all the files...\e[0m'
-    git add .
+    # Add specified files or all files for staging
+    if [ "${#files_to_commit[@]}" -gt 0 ]; then
+        for file in "${files_to_commit[@]}"; do
+            echo -e "\e[32m[INFO] Adding file: '$file'\e[0m"
+            git add "$file"
+        done
+    else
+        echo -e '\e[32m[INFO] Adding all the files...\e[0m'
+        git add .
+    fi
 
     # Commit the staged files with the provided message or default message
     echo -e "\e[32m[INFO] Committing files with message: '$commit_message'\e[0m"
