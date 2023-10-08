@@ -1,3 +1,4 @@
+#!/bin/bash
 clear
 figlet G i t !
 echo -e '\e[31m[INFO] Removing all the dependencies...'
@@ -9,7 +10,6 @@ progress_bar() {
     local empty_char="${4:--}"  # Default empty character: -
 
     local percentage
-    local i
     local progress_count
 
     for ((i = 0; i <= duration; i++)); do
