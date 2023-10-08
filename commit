@@ -1,11 +1,14 @@
 #!/bin/bash
 
-# Check if a commit message is provided
-if [ -n "$1" ]; then
-    commit_message="$1"
-else
-    commit_message="initial commit"
-fi
+commit_message="initial commit"
+
+while getopts "b:c:" flag; do
+    case "${flag}" in
+        b) branch_name="${OPTARG}" ;;
+        c) commit_message="${OPTARG}" ;;
+        *) ;;
+    esac
+done
 
 clear
 figlet "Git!"
@@ -30,7 +33,13 @@ if [ -e '.git' ]; then
     echo -e "\e[32m[INFO] Committing files with message: '$commit_message'\e[0m"
     git commit -m "$commit_message"
 
-    # Push the committed changes to the remote repository
+    # Switch to the specified branch if provided
+    if [ -n "$branch_name" ]; then
+        echo -e "\e[32m[INFO] Switching to branch: '$branch_name'\e[0m"
+        git checkout "$branch_name"
+    fi
+
+    # Push the committed changes to the specified or current branch
     echo -e '\e[32m[INFO] Pushing files...\e[0m'
     git push --force
 
