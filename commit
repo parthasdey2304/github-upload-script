@@ -1,3 +1,12 @@
+#!/bin/bash
+
+# Check if a commit message is provided
+if [ -n "$1" ]; then
+    commit_message="$1"
+else
+    commit_message="initial commit"
+fi
+
 clear
 figlet "Git!"
 
@@ -17,9 +26,9 @@ if [ -e '.git' ]; then
     echo -e '\e[32m[INFO] Adding all the files...\e[0m'
     git add .
 
-    # Commit the staged files
-    echo -e '\e[32m[INFO] Committing files...\e[0m'
-    git commit -m "Initial commit"
+    # Commit the staged files with the provided message or default message
+    echo -e "\e[32m[INFO] Committing files with message: '$commit_message'\e[0m"
+    git commit -m "$commit_message"
 
     # Push the committed changes to the remote repository
     echo -e '\e[32m[INFO] Pushing files...\e[0m'
