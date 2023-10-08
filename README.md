@@ -9,7 +9,7 @@ sudo apt install git -y
 
 + You need to install Github in Arch based:
 ```
-sudo pacman -Syu --noconfirm git
+sudo pacman -Sy --noconfirm git
 ```
 
 # Installation
