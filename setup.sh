@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# this is the script for installing the commit binary in executable file in the /bin directory
+
 echo -e '\e[32mInstalling the required packages...'
 echo -e '\e[32mInstalling figlet...\e[0m'
 
