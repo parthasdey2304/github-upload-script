@@ -2,9 +2,14 @@
 This repository contains a bash script to upload files on github for Linux
 
 # Pre-requisites
-+ You need to install Github first: 
++ You need to install Github in Debian based: 
 ```
 sudo apt install git -y
+```
+
++ You need to install Github in Arch based:
+```
+sudo pacman -Syu --noconfirm git
 ```
 
 # Installation
