@@ -52,7 +52,7 @@ chmod +x remove.sh
 ```
 
 # Contributing
-We welcome contributions from the community! We welcome your contributions to improve the project. If you'd like to contribute to Tkinter-Image-Viewer, please read the following guidelines on how to contribute:
+We welcome contributions from the community! We welcome your contributions to improve the project. If you'd like to contribute to github-upload-script, please read the following guidelines on how to contribute:
 + Fork the repository and create a new branch for your changes.
 + Make your changes to the code.
 + Test your changes thoroughly.
@@ -61,4 +61,3 @@ We welcome contributions from the community! We welcome your contributions to im
 + Create a pull request and wait for me to verify and then merge it to the main branch.
 
 # THANK YOU COMMUNITY!!!!
- 
