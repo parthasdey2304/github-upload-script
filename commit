@@ -27,7 +27,7 @@ if [ -e '.git' ]; then
     echo ''
 
     # Pull any changes from the remote repository
-    echo -e -n '\e[32m[INFO] Checking if any files need to be pulled...\e[0m\n\'
+    echo -e -n '\e[32m[INFO] Checking if any files need to be pulled...\e[0m\n'
     git pull
 
     # Add specified files or all files for staging
