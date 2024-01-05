@@ -5,8 +5,8 @@ files_to_commit=()  # Array to hold files to commit
 
 while getopts "b:c:i:m:" flag; do
     case "${flag}" in
-        b) branch_name="${OPTARG}" ;;
-        c) commit_message="${OPTARG}" ;;
+        b) branch_name="${OPTARG}" ;; # this stores the branch name to change
+        c) commit_message="${OPTARG}" ;; # this stores the commit message 
         i) files_to_commit+=("${OPTARG}") ;;
         m) files_to_commit+=("${OPTARG}");;
         *) ;;
