@@ -1,4 +1,4 @@
-# github-upload-script
+<h1 align="center">GitHub Upload Script</h1>
 This repository contains a bash script to upload files on github for Linux
 
 # Pre-requisites
