@@ -3,12 +3,23 @@
 commit_message="initial commit"
 files_to_commit=()  # Array to hold files to commit
 
-while getopts "b:c:i:m:" flag; do
+while getopts "b:c:i:m:h" flag; do
     case "${flag}" in
         b) branch_name="${OPTARG}" ;; # this stores the branch name to change
         c) commit_message="${OPTARG}" ;; # this stores the commit message 
         i) files_to_commit+=("${OPTARG}") ;;
         m) files_to_commit+=("${OPTARG}");;
+        h) # Display help message
+            echo "Usage: commit [-b branch_name] [-c commit_message] [-i file1] [-m file2] [-h]"
+            echo ""
+            echo "Options:"
+            echo "  -b branch_name   : Switch to the specified branch"
+            echo "  -c commit_message: Specify the commit message"
+            echo "  -i file1         : Add a specific file to commit"
+            echo "  -m file2         : Add multiple files to commit"
+            echo "  -h               : Display this help message"
+            exit 0
+            ;;
         *) ;;
     esac
 done
@@ -58,11 +69,11 @@ if [ -e '.git' ]; then
     # Add a 1-second delay for visual effect
     sleep 1
 
-    # Clear the screen and display "Repo Updated" message
-    clear
+    # Display "Repo Updated" message
     figlet "Repo Updated!!"
 else
     # Git directory does not exist
     echo -e '\e[31mFatal Error: Git not initialized!'
     echo -e '\e[31m.git file not found!\e[0m'
 fi
+
