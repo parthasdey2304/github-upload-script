@@ -39,6 +39,7 @@ chmod +x setup.sh
 ```
 commit
 ```
++ Type `commit -h` to get the manual of all the flags for the `commit` tool.
 
 # Uninstalling
 + Locate to the directory with the github-upload-script
